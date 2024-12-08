@@ -12,7 +12,16 @@ class Index extends Component
     use WithPagination;
 
     public $paginate = 10;
-    public $search = null;
+    public $search;
+
+    protected $updatesQueryString = [
+        ['search' => true]
+    ];
+
+    public function mount()
+    {
+        $this->search = request()->query('search', $this->search);
+    }
 
     public function render()
     {
