@@ -12,11 +12,18 @@ class Index extends Component
     use WithPagination;
 
     public $paginate = 10;
+    public $search = null;
 
     public function render()
     {
+        $query = Product::query();
+
+        if ($this->search !== null) {
+            $query->where('title', 'like', '%' . $this->search . '%');
+        }
+
         return view('livewire.product.index', [
-            'products' => Product::latest()->paginate($this->paginate)
+            'products' => $query->latest()->paginate($this->paginate)
         ]);
     }
 }

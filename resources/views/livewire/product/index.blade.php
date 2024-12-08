@@ -1,15 +1,24 @@
 <div>
     <div class="overflow-x-auto">
-        <div class="mb-4">
-            <label for="perPage" class="block text-sm font-medium">Items per page:</label>
-            <select wire:model.live='paginate'
-                class="mt-1 pl-3 pr-10 py-2 text-gray-700 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="100">100</option>
-            </select>
+        <div class="flex justify-between mb-4">
+            <div class="w-1/2 pr-2">
+                <label for="perPage" class="block text-sm font-medium">Items per page:</label>
+                <select wire:model.live='paginate'
+                    class="mt-1 pl-3 pr-10 py-2 text-gray-700 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <div class="w-1/2 pl-2">
+                <label for="search" class="block text-sm font-medium">Search:</label>
+                <input type="text" wire:model.live='search' id="search"
+                    class="mt-1 pl-3 pr-10 py-2 text-gray-700 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    placeholder="Search products...">
+            </div>
         </div>
+
         <table class="w-full text-left table-auto min-w-max">
             <thead>
                 <tr>
